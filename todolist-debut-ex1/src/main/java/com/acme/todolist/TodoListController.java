@@ -5,12 +5,16 @@ import java.time.temporal.ChronoUnit;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.inject.Inject;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+
+import org.springframework.data.repository.CrudRepository;
 
 /**
  * Le controlleur Spring MVC qui expose les endpoints REST
@@ -24,6 +28,7 @@ public class TodoListController {
 	private static final String LATE = "[LATE!]";
 	private TodoItemRepository todoItemRepository;
 
+	@Inject
 	public TodoListController(TodoItemRepository todoItemRepository) {
 		super();
 		this.todoItemRepository = todoItemRepository;
@@ -38,6 +43,8 @@ public class TodoListController {
 	public void createTodoItem(@RequestBody TodoItem todoItem) {
 		// Code à compléter
 		// ...
+		//this.todoItemRepository.save(todoItem);
+		this.todoItemRepository.save(new TodoItem(todoItem.getId(),todoItem.getTime(),todoItem.getContent()));
 	}
 
 	@GetMapping("/todos")
@@ -45,7 +52,6 @@ public class TodoListController {
 		return this.todoItemRepository.findAll().stream()
 				.map(item -> new TodoItem(item.getId(), item.getTime(), finalContent(item)))
 				.collect(Collectors.toList());
-
 	}
 
 	/**
