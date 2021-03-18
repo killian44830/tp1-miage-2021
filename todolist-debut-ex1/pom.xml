@@ -15,8 +15,10 @@
 	<name>todolist</name>
 	<description>TP1 miage, début ex. 1</description>
 
+
 	<properties>
 	</properties>
+
 
 	<dependencies>
 		<dependency>

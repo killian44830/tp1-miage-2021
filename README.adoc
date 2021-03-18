@@ -88,7 +88,7 @@ TodoItemRepository est null car on a pas créer de endpoint dans la base un clie
 
 NOTE: Pour lancer l'application Spring, selectionner la classe `TodolistApplication` et faire bouton droit -> 'Run as' -> 'Java Application'.
 
-* Quand les deux endpoints fonctionnent, commiter, faire un push vers Github et fermer le projet Eclipse (ne pas le supprimer).
+* Quand le nouveau endpoint fonctionne, commiter, faire un push vers Github et fermer le projet Eclipse (ne pas le supprimer).
 
 * Vérifier avec DBeaver que les donnnées sont bien en base PostgreSQL.
 

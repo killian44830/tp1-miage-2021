@@ -5,7 +5,10 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.springframework.web.bind.annotation.GetMapping;
+<<<<<<< HEAD
 import org.springframework.web.bind.annotation.PostMapping;
+=======
+>>>>>>> branch 'master' of https://github.com/killian44830/tp1-miage-2021.git
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -24,6 +27,7 @@ public class TodoListController {
 	
 	
 	private GetTodoItems getTodoItemsQuery;
+	// A compléter
 	
 	
 	private AddTodoItem addTodoItemsQuery;
@@ -54,6 +58,13 @@ public class TodoListController {
 	public void ajouterItem(@RequestBody TodoItem item) {
 		this.addTodoItemsQuery.addTodoItem(item);
 		
+	}
+	
+	
+	// Endpoint de type POST vers "/todos"
+	// A compléter
+	public void ajouterItem(@RequestBody TodoItem item) {
+		// A compléter		
 	}
 	
 	
