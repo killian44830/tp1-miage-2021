@@ -7,6 +7,7 @@ import com.acme.todolist.domain.TodoItem;
  * @author bflorat
  *
  */
+
 public interface UpdateTodoItem {
 	
 	/**
@@ -14,5 +15,6 @@ public interface UpdateTodoItem {
 	 * @param item
 	 */
 	void storeNewTodoItem(TodoItem item);
+	
 
 }

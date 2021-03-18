@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.acme.todolist.application.port.in.AddTodoItem;
 import com.acme.todolist.application.port.in.GetTodoItems;
 import com.acme.todolist.domain.TodoItem;
 
@@ -25,10 +26,24 @@ public class TodoListController {
 	private GetTodoItems getTodoItemsQuery;
 	
 	
+	private AddTodoItem addTodoItemsQuery;
+	
+	
+//	@Inject
+//	public TodoListController(GetTodoItems getTodoItemsQuery) {
+//		this.getTodoItemsQuery = getTodoItemsQuery;
+//	}
+	
 	@Inject
-	public TodoListController(GetTodoItems getTodoItemsQuery ) {
+	public TodoListController(GetTodoItems getTodoItemsQuery, AddTodoItem addTodoItemsQuery) {
 		this.getTodoItemsQuery = getTodoItemsQuery;
+		this.addTodoItemsQuery = addTodoItemsQuery;
 	}
+	
+//	@Inject
+//	public TodoListController(AddTodoItem addTodoItemsQuery) {
+//		this.addTodoItemsQuery = addTodoItemsQuery;
+//	}
 	
 	@GetMapping("/todos")
 	public List<TodoItem> getAllTodoItems() {
@@ -37,6 +52,7 @@ public class TodoListController {
 	
 	@PostMapping("/todos")
 	public void ajouterItem(@RequestBody TodoItem item) {
+		this.addTodoItemsQuery.addTodoItem(item);
 		
 	}
 	

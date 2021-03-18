@@ -12,7 +12,7 @@ public class TodoItemMapper {
 		return new TodoItem(todoItemJpaEntity.getId(), todoItemJpaEntity.getTime(), todoItemJpaEntity.getContent());
 	}
 	
-	public TodoItemJpaEntity mapToTodoItemJpaEntity(TodoItem todoItem) {
+	public TodoItemJpaEntity mapTodoItemJpaEntity(TodoItem todoItem) {
 		return new TodoItemJpaEntity(todoItem.getId(), todoItem.getTime(), todoItem.getContent(),true);
 	}
 

@@ -5,7 +5,7 @@ NOTE: TP de deux slots de 1h20
 ## Nom du(des) étudiant(e)(s) de ce monôme/binôme 
 WARNING: NE PAS OUBLIER DE MENTIONNER LES DEUX NOMS SI VOUS ETES EN BINOME!
 
-#XXX# (et #YYY#)
+Killian Laforge
 
 Commentaires éventuels des étudiants : #XXXXXX#
 
@@ -39,9 +39,15 @@ TIP: [Rappel Git] Trois dépôts sont ici utilisés: le dépot Github de l'ensei
 
 *Le code est-il structuré en couches ? Quel problèmes ce code peut-il poser ?*
 
+Le code n’est pas structuré en couches. On retrouve dans le même package des fichiers liés à la persistance, configuration, REST et entités.
+
 *Où se trouve le code métier (voir la règle de gestion RG 1) ?*
 
+Le code métier se trouve dans le contrôleur. Pour ce petit projet ce n’est pas gênant, cependant cela posera vite des problèmes pour un projet de taille normale.
+
 *Cette règle est-elle facilement testable par un test unitaire ?*
+
+Ce projet n’est pas facilement testable.
 
 * Lancer une base PostgreSQL en Docker dans un terminal (on lance ici la base en mode interactif pour visualiser son activité. Pour la lancer en tâche de fond, remplacer les options `it` par `d` comme 'daemon'):
 ```bash
@@ -49,9 +55,17 @@ docker run -it -e POSTGRES_PASSWORD=password -p 5432:5432 postgres
 ```
 *Expliquer cette ligne de commande (y compris les options utilisées)*
 
+Cette ligne de commande permet de démarrer un conteneur docker.
+L'option -p : Permet de publier un conteneur, et accessible via une translation de port depuis le serveur.
+L'option -e : Force Docker a utiliser un driver exec sépcifique.
+L'option -it : Permet de garder STDIN ouvert, même si pas attaché tout en allouant un pseudo terminal.
+
+
 * Compléter le code manquant dans la méthode `TodoListController.createTodoItem()`
 
 *Pourquoi `todoItemRepository` est-il `null` ? Quelle est la meilleure façon de l'injecter ?*
+
+TodoItemRepository est null car on a pas créer de endpoint dans la base un client REST. Pour injecter, il faut mieux mettre une annotation @Inject devant la fonction TodoListController()
 
 * Modifier le code en conséquence.
 
@@ -94,6 +108,14 @@ Source : http://leanpub.com/get-your-hands-dirty-on-clean-architecture[Tom Hombe
 
 *Rappeler en quelques lignes les grands principes de l'architecture hexagonale.*
 
+
+L'architecture hexagonale décompose un système en plusieurs composants interchangeables et faiblement couplés.
+
+Chaque composant est connecté aux autres par l'intermédiaire de « ports » qui représentent un canal de communication.
+
+
+
+
 Compléter ce code avec une fonctionnalité de création de `TodoItem`  persisté en base et appelé depuis un endpoint REST `POST /todos` qui :
 
 * prend un `TodoItem` au format JSON dans le body (voir exemple de contenu plus haut);
@@ -109,6 +131,8 @@ _Temps estimé : 20 mins_
 * Implémenter (en junit) des TU sur la règle de gestion qui consiste à afficher `[LATE!]` dans la description d'un item en retard de plus de 24h.
 
 *Quels types de tests devra-t-on écrire pour les adapteurs ?* 
+
+
 
 *Que teste-on dans ce cas ?*
 

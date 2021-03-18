@@ -15,10 +15,10 @@
 	<name>todolist</name>
 	<description>TP1 miage, début ex. 2</description>
 
-	<properties>
+<!-- 	<properties>
 		<start-class>com.acme.todolist.configuration.TodolistApplication</start-class>
          	<java.version>15</java.version>
-	</properties>
+	</properties> -->
 
 	<dependencies>
 		<dependency>
