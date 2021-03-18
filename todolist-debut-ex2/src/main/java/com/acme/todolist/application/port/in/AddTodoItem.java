@@ -12,4 +12,3 @@ public interface AddTodoItem {
 	 */
 	void addTodoItem(TodoItem item);
 }
-
